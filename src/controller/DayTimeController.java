@@ -3,12 +3,15 @@ package controller;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import model.MealRepository;
+import model.User;
+import model.UserRepository;
 import view.DayTimeView;
 
 public class DayTimeController {
 
     public Scene getScene() {
-        StackPane root = new DayTimeView().build(this);
+        User user = UserRepository.getCurrentUser();
+        StackPane root = new DayTimeView().build(this, user);
         return new Scene(root, 800, 600);
     }
 
@@ -31,4 +34,6 @@ public class DayTimeController {
     public void handleEvening() {
         SceneManager.switchTo("meal", "evening");
     }
+
+    public void handleResults() {SceneManager.switchTo("result", UserRepository.getCurrentUser());}
 }

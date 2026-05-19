@@ -2,6 +2,7 @@ package controller;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.User;
 
 public class SceneManager {
     private static Stage stage;
@@ -21,6 +22,8 @@ public class SceneManager {
                 int index = Integer.parseInt(parts[1]);
                 yield new DishController(mealType, index).getScene();
             }
+            case "result" -> new ResultController((User) data).getScene();
+            case "graph" -> new GraphController((User) data).getScene();
             default -> throw new IllegalArgumentException("Scene ERROR: " + screen);
         };
         stage.setScene(scene);

@@ -1,19 +1,17 @@
-
 package view;
 
 import controller.DayTimeController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import model.User;
 
 public class DayTimeView {
 
-    public StackPane build(DayTimeController ctrl) {
+    public StackPane build(DayTimeController ctrl, User user) {
 
         Label titleLabel = new Label("Please select the part of the day:");
         titleLabel.setStyle("-fx-font-size: 32px; " +
@@ -38,9 +36,16 @@ public class DayTimeView {
                 "-fx-font-size: 14px; " +
                 "-fx-background-radius: 8;");
 
+        Button resultsBtn = new Button("View Results");
+        resultsBtn.setStyle("-fx-background-color: #4CAF50; " +
+                "-fx-text-fill: black; " +
+                "-fx-font-size: 14px; " +
+                "-fx-background-radius: 8;");
+
         morningBtn.setOnAction(e -> ctrl.handleMorning());
         midDayBtn.setOnAction(e -> ctrl.handleMidDay());
         eveningBtn.setOnAction(e -> ctrl.handleEvening());
+        resultsBtn.setOnAction(e -> ctrl.handleResults());
 
         Label waterLabel = new Label("Today's water intake:");
         waterLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: black;");
@@ -95,7 +100,7 @@ public class DayTimeView {
         VBox content = new VBox(15, titleLabel,
                 morningBtn, midDayBtn, eveningBtn,
                 waterLabel, waterDrops, waterValueLabel,
-                caloriesLabel, caloriesField);
+                caloriesLabel, caloriesField, resultsBtn);
         content.setAlignment(Pos.CENTER);
         content.setPadding(new Insets(40));
 
@@ -109,6 +114,7 @@ public class DayTimeView {
         midDayBtn.prefWidthProperty().bind(root.widthProperty().multiply(0.25));
         eveningBtn.prefWidthProperty().bind(root.widthProperty().multiply(0.25));
         caloriesField.prefWidthProperty().bind(root.widthProperty().multiply(0.25));
+        resultsBtn.prefWidthProperty().bind(root.widthProperty().multiply(0.25));
 
         return root;
     }

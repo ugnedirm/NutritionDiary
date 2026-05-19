@@ -19,3 +19,5 @@ public class Main extends Application {
         launch(args);
     }
 }
+
+//https://repo1.maven.org/maven2/com/lowagie/itext/2.1.7/itext-2.1.7.jar parsisiusk kad veiktu (cia lib)

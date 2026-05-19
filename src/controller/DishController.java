@@ -23,19 +23,18 @@ public class DishController {
     }
 
     public boolean handleSave(String name, String calories, boolean hasNutritional,
-                              String protein, String carbs, String fats, String sugar) {
+                              String protein, String carbs, String fats) {
         if (name.isEmpty() || calories.isEmpty()) return false;
 
         try {
             Dish dish;
             if (hasNutritional) {
-                if (protein.isEmpty() || carbs.isEmpty() || fats.isEmpty() || sugar.isEmpty()) return false;
+                if (protein.isEmpty() || carbs.isEmpty() || fats.isEmpty()) return false;
                 dish = new Dish(name,
                         Double.parseDouble(calories),
                         Double.parseDouble(protein),
                         Double.parseDouble(carbs),
-                        Double.parseDouble(fats),
-                        Double.parseDouble(sugar));
+                        Double.parseDouble(fats));
             } else {
                 dish = new Dish(name, Double.parseDouble(calories));
             }

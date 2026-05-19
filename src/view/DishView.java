@@ -35,24 +35,18 @@ public class DishView {
         fatsField.setPromptText("Fats (g)");
         fatsField.setStyle("-fx-background-radius: 8; -fx-font-size: 14px;");
 
-        TextField sugarField = new TextField();
-        sugarField.setPromptText("Sugar (g)");
-        sugarField.setStyle("-fx-background-radius: 8; -fx-font-size: 14px;");
-
         CheckBox nutritionalCheckBox = new CheckBox("Add nutritional values");
         nutritionalCheckBox.setStyle("-fx-text-fill: black; -fx-font-size: 14px;");
 
         proteinField.setVisible(false); proteinField.setManaged(false);
         carbsField.setVisible(false);   carbsField.setManaged(false);
         fatsField.setVisible(false);    fatsField.setManaged(false);
-        sugarField.setVisible(false);   sugarField.setManaged(false);
 
         nutritionalCheckBox.setOnAction(e -> {
             boolean checked = nutritionalCheckBox.isSelected();
             proteinField.setVisible(checked);  proteinField.setManaged(checked);
             carbsField.setVisible(checked);    carbsField.setManaged(checked);
             fatsField.setVisible(checked);     fatsField.setManaged(checked);
-            sugarField.setVisible(checked);    sugarField.setManaged(checked);
         });
 
         if (existing != null) {
@@ -63,11 +57,9 @@ public class DishView {
                 proteinField.setText(String.valueOf(existing.getProtein()));
                 carbsField.setText(String.valueOf(existing.getCarbohydrates()));
                 fatsField.setText(String.valueOf(existing.getFats()));
-                sugarField.setText(String.valueOf(existing.getSugar()));
                 proteinField.setVisible(true); proteinField.setManaged(true);
                 carbsField.setVisible(true);   carbsField.setManaged(true);
                 fatsField.setVisible(true);    fatsField.setManaged(true);
-                sugarField.setVisible(true);   sugarField.setManaged(true);
             }
         }
 
@@ -94,15 +86,14 @@ public class DishView {
                     nutritionalCheckBox.isSelected(),
                     proteinField.getText(),
                     carbsField.getText(),
-                    fatsField.getText(),
-                    sugarField.getText()
+                    fatsField.getText()
             );
             errorLabel.setVisible(!success);
         });
         backBtn.setOnAction(e -> ctrl.handleBack());
 
         VBox content = new VBox(15, titleLabel, nameField, caloriesField,
-                nutritionalCheckBox, proteinField, carbsField, fatsField, sugarField,
+                nutritionalCheckBox, proteinField, carbsField, fatsField,
                 errorLabel, saveBtn, backBtn);
         content.setAlignment(Pos.CENTER);
         content.setPadding(new Insets(40));
@@ -118,7 +109,6 @@ public class DishView {
         proteinField.prefWidthProperty().bind(root.widthProperty().multiply(0.3));
         carbsField.prefWidthProperty().bind(root.widthProperty().multiply(0.3));
         fatsField.prefWidthProperty().bind(root.widthProperty().multiply(0.3));
-        sugarField.prefWidthProperty().bind(root.widthProperty().multiply(0.3));
         saveBtn.prefWidthProperty().bind(root.widthProperty().multiply(0.3));
         backBtn.prefWidthProperty().bind(root.widthProperty().multiply(0.3));
 

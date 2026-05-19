@@ -9,6 +9,7 @@ public class MealRepository {
     private static List<Dish> eveningDishes = new ArrayList<>();
     private static double water = 0;
     private static double activeCalories = 0;
+    private static double dailyWeight = 0;
 
     public static void addDish(String mealType, Dish dish) {
         switch (mealType) {
@@ -43,6 +44,8 @@ public class MealRepository {
         activeCalories = c;
     }
 
+    public static void setDailyWeight(double w) {dailyWeight = w;}
+
     public static double getWater() {
         return water;
     }
@@ -51,11 +54,14 @@ public class MealRepository {
         return activeCalories;
     }
 
+    public static double getDailyWeight() {return dailyWeight;}
+
     public static void clear() {
         morningDishes.clear();
         midDayDishes.clear();
         eveningDishes.clear();
         water = 0;
         activeCalories = 0;
+        dailyWeight = 0;
     }
 }

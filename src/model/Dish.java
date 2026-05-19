@@ -6,7 +6,6 @@ public class Dish {
     private Double protein;
     private Double carbohydrates;
     private Double fats;
-    private Double sugar;
 
 
     public Dish(String name, double calories) {
@@ -15,13 +14,12 @@ public class Dish {
     }
 
 
-    public Dish(String name, double calories, double protein, double carbohydrates, double fats, double sugar) {
+    public Dish(String name, double calories, double protein, double carbohydrates, double fats) {
         this.name = name;
         this.calories = calories;
         this.protein = protein;
         this.carbohydrates = carbohydrates;
         this.fats = fats;
-        this.sugar = sugar;
     }
 
     public boolean hasNutritionalValues() {
@@ -46,9 +44,5 @@ public class Dish {
 
     public Double getFats() {
         return fats;
-    }
-
-    public Double getSugar() {
-        return sugar;
     }
 }

@@ -15,9 +15,9 @@ public class SignUpController {
     }
 
     public boolean handleSignUp(String username, String age, String height,
-                                String currentWeight, String goalWeight, String activityLevel) {
+                                String currentWeight, String goalWeight, String activityLevel, String gender) {
         if (username.isEmpty() || age.isEmpty() || height.isEmpty() ||
-                currentWeight.isEmpty() || goalWeight.isEmpty() || activityLevel.isEmpty()) {
+                currentWeight.isEmpty() || goalWeight.isEmpty() || activityLevel.isEmpty() || gender.isEmpty()) {
             return false;
         }
 
@@ -30,10 +30,12 @@ public class SignUpController {
                     Double.parseDouble(height),
                     Double.parseDouble(currentWeight),
                     Double.parseDouble(goalWeight),
-                    Integer.parseInt(activityLevel)
+                    Integer.parseInt(activityLevel),
+                    gender
             );
             UserRepository.addUser(user);
             SessionManager.login(user);
+            UserRepository.setCurrentUser(user);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return false;
