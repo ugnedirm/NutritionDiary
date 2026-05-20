@@ -35,5 +35,7 @@ public class DayTimeController {
         SceneManager.switchTo("meal", "evening");
     }
 
-    public void handleResults() {SceneManager.switchTo("result", UserRepository.getCurrentUser());}
+    public void handleResults() {
+        SceneManager.switchTo("result", UserRepository.getCurrentUser());
+    }
 }

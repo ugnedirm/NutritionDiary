@@ -9,17 +9,26 @@ import model.UserRepository;
 import view.ResultView;
 
 public class ResultController {
-        private User user;
+    private User user;
 
-    public ResultController(User user) {this.user = user;}
+    public ResultController(User user) {
+        this.user = user;
+    }
 
-        public Scene getScene() {
-            StackPane root = new ResultView().build(this);
-            return new Scene(root, 800, 600);
-        }
+    public Scene getScene() {
+        StackPane root = new ResultView().build(this);
+        return new Scene(root, 800, 600);
+    }
 
-        public User getUser() {return user;}
+    public User getUser() {
+        return user;
+    }
 
-    public void handleGraph() {SceneManager.switchTo("graph", UserRepository.getCurrentUser());}
-    public void handleEnterAgain() {SceneManager.switchTo("daytime", null);}
+    public void handleGraph() {
+        SceneManager.switchTo("graph", UserRepository.getCurrentUser());
+    }
+
+    public void handleEnterAgain() {
+        SceneManager.switchTo("daytime", null);
+    }
 }

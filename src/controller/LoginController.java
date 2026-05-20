@@ -6,7 +6,6 @@ import model.SessionManager;
 import model.User;
 import model.UserRepository;
 import view.LoginView;
-
 import java.time.LocalDate;
 
 public class LoginController {
@@ -17,9 +16,15 @@ public class LoginController {
     }
 
     public boolean handleLogin(String username, LocalDate date, double weight) {
-        if (username.isEmpty()) return false;
+        if (username.isEmpty())
+            return false;
+        if (weight <= 0 || weight > 600)
+            return false;
+
         User user = UserRepository.findByUsername(username);
-        if (user == null) return false;
+        if (user == null)
+            return false;
+
         user.addWeightEntry(date, weight);
         user.setCurrentWeight(weight);
         UserRepository.save();

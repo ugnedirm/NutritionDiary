@@ -49,7 +49,9 @@ public class User {
         return activityLevel;
     }
 
-    public String getGender() {return gender;}
+    public String getGender() {
+        return gender;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -75,9 +77,15 @@ public class User {
         this.activityLevel = activityLevel;
     }
 
-    public void setGender(String gender) {this.gender = gender;}
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
-    public void addWeightEntry(LocalDate date, double weight) {weightHistory.add(new WeightEntry(date, weight));}
+    public void addWeightEntry(LocalDate date, double weight) {
+        weightHistory.add(new WeightEntry(date, weight));
+    }
 
-    public List<WeightEntry> getWeightHistory() {return weightHistory;}
+    public List<WeightEntry> getWeightHistory() {
+        return weightHistory;
+    }
 }

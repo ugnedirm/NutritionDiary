@@ -11,6 +11,11 @@ public class WeightEntry {
         this.weight = weight;
     }
 
-    public LocalDate getDate() { return date; }
-    public double getWeight() { return weight; }
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
 }
