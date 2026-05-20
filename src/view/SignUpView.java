@@ -31,7 +31,7 @@ public class SignUpView {
 
         Label subtitleLabel = new Label("Enter your personal data to continue. All fields are necessary");
         subtitleLabel.setStyle(
-                "-fx-font-size: " + SIZE_TEXT + "px; -fx-text-fill: " + COLOR_TEXT_WHITE + "; -fx-font-style: italic;");
+                "-fx-font-size: " + SIZE_TEXT + "px; -fx-text-fill: " + COLOR_TEXT + "; -fx-font-style: italic;");
 
         TextField usernameField = new TextField();
         usernameField.setPromptText("Your username");
@@ -58,7 +58,7 @@ public class SignUpView {
         activityField.setStyle(FIELD_NORMAL);
 
         Label genderLabel = new Label("Your gender");
-        genderLabel.setStyle("-fx-font-size: " + SIZE_TEXT + "px; -fx-text-fill: " + COLOR_TEXT_WHITE + ";");
+        genderLabel.setStyle("-fx-font-size: " + SIZE_TEXT + "px; -fx-text-fill: " + COLOR_TEXT + ";");
 
         ToggleGroup genderGroup = new ToggleGroup();
         ToggleButton femaleBtn = new ToggleButton("♀ Female");
