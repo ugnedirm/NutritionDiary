@@ -14,7 +14,7 @@ public class SceneManager {
     public static void switchTo(String screen, Object data) {
         Scene scene = switch (screen) {
             case "main" -> new MainMenuController().getScene();
-            case "login" -> new LoginController().getScene();
+            case "login" -> new LogInController().getScene();
             case "signup" -> new SignUpController().getScene();
             case "daytime" -> new DayTimeController().getScene();
             case "meal" -> new MealController((String) data).getScene();

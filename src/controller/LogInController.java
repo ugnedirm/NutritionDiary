@@ -5,13 +5,13 @@ import javafx.scene.layout.StackPane;
 import model.SessionManager;
 import model.User;
 import model.UserRepository;
-import view.LoginView;
+import view.LogInView;
 import java.time.LocalDate;
 
-public class LoginController {
+public class LogInController {
 
     public Scene getScene() {
-        StackPane root = new LoginView().build(this);
+        StackPane root = new LogInView().build(this);
         return new Scene(root, 800, 600);
     }
 

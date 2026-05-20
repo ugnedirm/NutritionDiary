@@ -1,6 +1,6 @@
 package view;
 
-import controller.LoginController;
+import controller.LogInController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -8,7 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import java.time.LocalDate;
 
-public class LoginView {
+public class LogInView {
 
     private static final String COLOR_BTN_DEFAULT = "#A9A9A9";
     private static final String COLOR_TEXT = "black";
@@ -20,7 +20,7 @@ public class LoginView {
     private static final String FIELD_ERROR = "-fx-background-radius: 8; -fx-font-size: " + SIZE_TEXT
             + "px; -fx-border-color: " + COLOR_ERROR + "; -fx-border-radius: 8;";
 
-    public StackPane build(LoginController ctrl) {
+    public StackPane build(LogInController ctrl) {
 
         Label subtitleLabel = new Label("Enter your username to continue");
         subtitleLabel.setStyle(
